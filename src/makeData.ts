@@ -25,7 +25,7 @@ const newPerson = (): Person => {
       'Orientador',
       'Instrutor',
     ])[0]!,
-    data: faker.date.recent(10).toLocaleString('pt-BR'),
+    data: faker.date.recent(10).toLocaleString("pt-BR"),
     valor: faker.finance.amount(50, 150, 2, 'R$ '),
     pago: faker.datatype.boolean(),
   }
@@ -37,7 +37,6 @@ export function makeData(...lens: number[]) {
     return range(len).map((d): Person => {
       return {
         ...newPerson(),
-        subRows: lens[depth + 1] ? makeDataLevel(depth + 1) : undefined,
       }
     })
   }

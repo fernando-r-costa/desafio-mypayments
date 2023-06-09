@@ -25,8 +25,8 @@
 
 ## Meu processo
 
-- [ ] Implementação tabela
-- [ ] Desktop-design
+- [x] Implementação tabela
+- [x] Desktop-design
 - [ ] Mobile-design
 
 ## Autor
