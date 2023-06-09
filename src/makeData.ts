@@ -1,13 +1,12 @@
 import { faker } from '@faker-js/faker'
 
+
 export type Person = {
-  firstName: string
-  lastName: string
-  age: number
-  visits: number
-  progress: number
-  status: 'relationship' | 'complicated' | 'single'
-  subRows?: Person[]
+  usuario: string
+  titulo: 'Professor' | 'Orientador' | 'Instrutor'
+  data: any
+  valor: any
+  pago: boolean
 }
 
 const range = (len: number) => {
@@ -20,16 +19,15 @@ const range = (len: number) => {
 
 const newPerson = (): Person => {
   return {
-    firstName: faker.name.firstName(),
-    lastName: faker.name.lastName(),
-    age: faker.datatype.number(40),
-    visits: faker.datatype.number(1000),
-    progress: faker.datatype.number(100),
-    status: faker.helpers.shuffle<Person['status']>([
-      'relationship',
-      'complicated',
-      'single',
+    usuario: faker.name.fullName(),
+    titulo: faker.helpers.shuffle<Person['titulo']>([
+      'Professor',
+      'Orientador',
+      'Instrutor',
     ])[0]!,
+    data: faker.date.recent(10).toLocaleString('pt-BR'),
+    valor: faker.finance.amount(50, 150, 2, 'R$ '),
+    pago: faker.datatype.boolean(),
   }
 }
 
